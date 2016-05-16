@@ -6,7 +6,7 @@ arbor.run(['$rootScope', 'Linker',
     }
 ]);
 
-arbor.controller("homePageController", [ "$scope", "Linker",
+arbor.controller("homeController", [ "$scope", "Linker",
     function ($scope, Linker) {
         $scope.branches_page1 = [
             {
@@ -23,23 +23,42 @@ arbor.controller("homePageController", [ "$scope", "Linker",
             },
             {
                 title: 'World News'
+            },
+            {
+                title: 'New York Times'
             }
         ];
     }
 ]);
 
-arbor.controller("pseudoPageController", [ "$scope", "Linker",
+arbor.controller("feedController", [ "$scope", "Linker",
+    function ($scope, Linker) {}
+]);
+
+arbor.controller("discoverController", [ "$scope", "Linker",
+    function ($scope, Linker) {}
+]);
+
+arbor.controller("settingsController", [ "$scope", "Linker",
+    function ($scope, Linker) {}
+]);
+
+arbor.controller("leafPileController", [ "$scope", "Linker",
+    function ($scope, Linker) {}
+]);
+
+arbor.controller("searchController", [ "$scope", "Linker",
     function ($scope, Linker) {}
 ]);
 
 arbor.controller("siteNavigationController", [ "$scope", "Linker",
     function ($scope, Linker) {
         $scope.menu_links = [
-            {title: 'discover', icon: 'users'},
-            {title: 'search', icon: 'search'},
-            {title: 'home', icon: 'tree'},
-            {title: 'settings', icon: 'cog'},
-            {title: 'leaf pile', icon: 'leaf'}
+            {title: 'discover',  path: '/discover',  icon: 'users'},
+            {title: 'search',    path: '/search',    icon: 'search'},
+            {title: 'home',      path: '/',          icon: 'tree'},
+            {title: 'settings',  path: '/settings',  icon: 'cog'},
+            {title: 'leaf pile', path: '/leaf-pile', icon: 'leaf'}
         ];
     }
 ]);

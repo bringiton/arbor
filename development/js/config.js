@@ -7,12 +7,28 @@ var arbor = angular.module('arborApp', ['ngRoute', 'directives', 'services', 'fi
 routes.config(function($routeProvider) {
     $routeProvider
         .when('/', {
-            controller: 'homePageController as cntlr',
-            templateUrl: './Development/templates/page--home.html'
+            controller: 'homeController as cntlr',
+            templateUrl: './development/templates/pages/home.html'
         })
-        .when('/pseudo-page', {
-            controller: 'pseudoPageController as cntlr',
-            templateUrl: './Development/templates/page--pseudo-page.html'
+        .when('/pseudo-feed', {
+            controller: 'feedController as cntlr',
+            templateUrl: './development/templates/pages/pseudo-feed.html'
+        })
+        .when('/discover', {
+            controller: 'discoverController as cntlr',
+            templateUrl: './development/templates/pages/discover.html'
+        })
+        .when('/settings', {
+            controller: 'settingsController as cntlr',
+            templateUrl: './development/templates/pages/settings.html'
+        })
+        .when('/leaf-pile', {
+            controller: 'leafPileController as cntlr',
+            templateUrl: './development/templates/pages/leaf-pile.html'
+        })
+        .when('/search', {
+            controller: 'searchController as cntlr',
+            templateUrl: './development/templates/pages/search.html'
         })
         .otherwise({
             redirectTo: '/'
