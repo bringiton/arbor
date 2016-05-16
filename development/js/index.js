@@ -9,24 +9,12 @@ arbor.run(['$rootScope', 'Linker',
 arbor.controller("homeController", [ "$scope", "Linker",
     function ($scope, Linker) {
         $scope.branches_page1 = [
-            {
-                title: 'News'
-            },
-            {
-                title: 'Politics'
-            },
-            {
-                title: 'Music'
-            },
-            {
-                title: 'Food'
-            },
-            {
-                title: 'World News'
-            },
-            {
-                title: 'New York Times'
-            }
+            {title: 'News'},
+            {title: 'Politics'},
+            {title: 'Music'},
+            {title: 'Food'},
+            {title: 'World News'},
+            {title: 'New York Times'}
         ];
     }
 ]);
@@ -44,7 +32,24 @@ arbor.controller("settingsController", [ "$scope", "Linker",
 ]);
 
 arbor.controller("leafPileController", [ "$scope", "Linker",
-    function ($scope, Linker) {}
+    function ($scope, Linker) {
+        $scope.branches_example1 = [
+            {title: 'News'},
+            {title: 'Politics'},
+            {title: 'Music'},
+            {title: 'Food'},
+            {title: 'World News'},
+            {title: 'New York Times'},
+        ];
+
+        $scope.leaves = [
+            {title: 'New York Times', icon: 'twitter'},
+            {title: 'New York Times', icon: 'facebook'},
+            {title: 'Humans of New York', icon: 'instagram'},
+            {title: 'Starup Bus', icon: 'instagram'},
+            {title: 'Starup Bus', icon: 'twitter'},
+        ];
+    }
 ]);
 
 arbor.controller("searchController", [ "$scope", "Linker",
@@ -57,8 +62,8 @@ arbor.controller("siteNavigationController", [ "$scope", "Linker",
             {title: 'discover',  path: '/discover',  icon: 'users'},
             {title: 'search',    path: '/search',    icon: 'search'},
             {title: 'home',      path: '/',          icon: 'tree'},
+            {title: 'leaf pile', path: '/leaf-pile', icon: 'leaf'},
             {title: 'settings',  path: '/settings',  icon: 'cog'},
-            {title: 'leaf pile', path: '/leaf-pile', icon: 'leaf'}
         ];
     }
 ]);

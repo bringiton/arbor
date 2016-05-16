@@ -28,3 +28,10 @@
         border-bottom: 1px solid;
     }
 }
+
+.leaf {
+    @include margin-center();
+    height: 50px;
+    width:  90%;
+    border: 1px solid $border-color;
+}

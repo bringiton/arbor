@@ -8,6 +8,14 @@
             &:last-child {
                 border-right: 0;
             }
+            &.highlight {
+                background-color: #efefef;
+            }
         }
+    }
+    .branches {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 }
