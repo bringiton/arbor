@@ -1,11 +1,14 @@
-.container {}
+.container {
+    margin:  0;
+    padding: 0;
+}
 
 .button-container {
     @include flex-centered();
     @include margin-center();
 }
 
-.branch-container {
+.container--branches {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -19,7 +22,7 @@
     border: 1px solid;
 
     .branch__title {
-        width: 75%;
+        width: 90%;
         padding-left: 5px;
         border-right:  1px solid;
         border-bottom: 1px solid;
