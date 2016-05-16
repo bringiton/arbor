@@ -1,7 +1,12 @@
 @import "bourbon";
 
 @import "common/mixins";
+@import "common/variables";
 @import "common/blocks";
 @import "shared/site-navigation";
 
 @import "pages/home";
+@import "pages/discover";
+@import "pages/search";
+@import "pages/settings";
+@import "pages/leaf-pile";

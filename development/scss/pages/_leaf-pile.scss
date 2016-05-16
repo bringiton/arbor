@@ -1,0 +1,13 @@
+.container--leaf-pile {
+    .navbar-fixed-top .container {
+        .navbar-brand {
+            width: 50%;
+            text-align: center;
+            text-transform: uppercase;
+            border-right: 1px solid $border-color;
+            &:last-child {
+                border-right: 0;
+            }
+        }
+    }
+}
