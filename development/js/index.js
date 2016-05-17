@@ -12,7 +12,7 @@ arbor.controller("homeController", [ "$scope", "Linker",
     function ($scope, Linker) {
         $scope.branches_page1 = [
             {
-                title: 'News',
+                title: 'Arbor',
                 slug: 'news'
             },
             {
@@ -28,7 +28,7 @@ arbor.controller("homeController", [ "$scope", "Linker",
                 slug: 'food'
             },
             {
-                title: 'World News',
+                title: 'Sports',
                 slug: 'world-news'
             },
             {

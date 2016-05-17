@@ -25,11 +25,11 @@ module.exports = function(grunt) {
             },
             dist: {src: 'build/css/index.css'}
         },
-        notify: { build: { options: { title: '', message: 'Grunt tasks finished'} } },
+        // notify: { build: { options: { title: '', message: 'Grunt tasks finished'} } },
         watch : {
             stylesheets: {
                 files: ['development/scss/*.scss', 'development/scss/**/*.scss'],
-                tasks: ['sass', 'notify']
+                tasks: ['sass']
             }
         }
     });
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-notify');
 
-    grunt.registerTask('build',   ['base', 'notify']);
-    grunt.registerTask('default', ['base', 'notify', 'watch']);
+    grunt.registerTask('build',   ['base']);
+    grunt.registerTask('default', ['base', 'watch']);
     grunt.registerTask('base',    ['sass', 'postcss']);
 };
