@@ -98,26 +98,37 @@ arbor.controller("feedController", [ "$rootScope", "$scope", "$routeParams", "Li
                 {
                     "users": [
                         {"name": "sriram09","source": "twitter"},
+                        {"name": "srirams09","source": "instagram"},
                         {"name": "saltorcivia","source": "twitter"},
                     ]
                 }
             )
         })
         .done(function(data) {
-            var ramsTwitter = data.data[0];
-            var salsTwitter = data.data[1];
+            var salsTwitter   = data.data[0];
+            var ramsTwitter   = data.data[1];
+            var ramsInstagram = data.data[2].data;
+
             for(var i = 0; i < ramsTwitter.length; i++) {
                 $scope.branch_and_leaves['leaves'][i] = {}
                 $scope.branch_and_leaves['leaves'][i]['copy'] = ramsTwitter[i].text;
                 $scope.branch_and_leaves['leaves'][i]['name'] = ramsTwitter[i].user.name;
+                $scope.branch_and_leaves['leaves'][i]['source'] = "twitter";
             }
-            for(var j = 1; j < salsTwitter.length; j++) {
-                $scope.branch_and_leaves['leaves'][ramsTwitter.length + j] = {}
-                $scope.branch_and_leaves['leaves'][ramsTwitter.length + j]['copy'] = salsTwitter[j].text;
-                $scope.branch_and_leaves['leaves'][ramsTwitter.length + j]['name'] = salsTwitter[j].user.name;
+
+            for(var i = 0; i < ramsInstagram.length; i++) {
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + 1] = {}
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + 1]['image'] = ramsInstagram[i].link;
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + 1]['source'] = "instagram";
             }
-            console.log("ramsTwitter", ramsTwitter)
-            console.log("salsTwitter", salsTwitter)
+// Just in a rush, don't crucify me for doing it this way
+            for(var i = 0; i < salsTwitter; i++) {
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + ramsInstagram.length + i] = {}
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + ramsInstagram.length + i]['copy'] = salsTwitter[i].text;
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + ramsInstagram.length + i]['name'] = salsTwitter[i].user.name;
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + ramsInstagram.length + i]['source'] = "twitter";
+            }
+
             $scope.$digest();
         })
         .fail(function()   {})

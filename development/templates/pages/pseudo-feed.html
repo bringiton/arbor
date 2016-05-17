@@ -2,7 +2,7 @@
     <div class="leaves">
         <div class="leaf leaf--content" ng-repeat="leaf in branch_and_leaves.leaves" style="background-image: url({{leaf.image}});">
             <span class="leaf__publisher-via-source">
-                {{leaf.name}} via {{leaf.source}} Twitter
+                {{leaf.name}} via {{leaf.source}}
             </span>
             <span ng-if="leaf.copy" class="leaf__copy">{{leaf.copy}}</span>
         </div>
