@@ -126,9 +126,36 @@ arbor.controller("leafPileController", [ "$scope", "Linker",
 
 arbor.controller("searchController", [ "$scope", "Linker",
     function ($scope, Linker) {
-        $(".container--search #input").submit(function(event) {
-
-        });
+        $scope.searchResults = [
+            {title: 'Humans of New York', icon: 'instagram'},
+            {title: 'Ars Technica', icon: 'reddit'},
+            {title: 'New York Times',     icon: 'twitter'},
+            {title: 'Gucci', icon: 'instagram'},
+            {title: 'Discovery Channel', icon: 'facebook'},
+            {title: 'Gucci', icon: 'instagram'},
+            {title: 'Humans of New York', icon: 'instagram'},
+            {title: 'Tech Chrunch', icon: 'snapchat-ghost'},
+            {title: 'Discovery Channel', icon: 'facebook'},
+            {title: 'Huffington Post',    icon: 'facebook'},
+            {title: 'Tech Chrunch', icon: 'snapchat-ghost'},
+            {title: 'Discovery Channel', icon: 'facebook'},
+            {title: 'Humans of New York', icon: 'instagram'},
+            {title: 'Gucci', icon: 'instagram'},
+            {title: 'Humans of New York', icon: 'instagram'},
+            {title: 'Tech Chrunch', icon: 'snapchat-ghost'},
+            {title: 'Tech Chrunch', icon: 'snapchat-ghost'},
+            {title: 'Huffington Post',    icon: 'facebook'},
+            {title: 'Ars Technica', icon: 'reddit'},
+            {title: 'Gucci', icon: 'instagram'},
+            {title: 'New York Times',     icon: 'twitter'},
+            {title: 'Ars Technica', icon: 'reddit'},
+            {title: 'New York Times',     icon: 'twitter'},
+            {title: 'New York Times',     icon: 'twitter'},
+            {title: 'Huffington Post',    icon: 'facebook'},
+            {title: 'Ars Technica', icon: 'reddit'},
+            {title: 'Huffington Post',    icon: 'facebook'},
+            {title: 'Discovery Channel', icon: 'facebook'},
+        ];
     }
 ]);
 
