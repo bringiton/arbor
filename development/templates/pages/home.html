@@ -1,5 +1,5 @@
 <div class="container container--branches">
-    <div ng-repeat="branch in branches_page1" ng-click="gotoRoute({path: '/pseudo-feed'})" class="branch">
+    <div ng-repeat="branch in branches_page1" ng-click="gotoRoute({path: '/pseudo-feed', branch: branch.slug})" class="branch">
         <div class="branch__title">{{branch.title}}</div>
     </div>
 </div>

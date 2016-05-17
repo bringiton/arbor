@@ -4,6 +4,14 @@
         align-items: center;
         justify-content: space-between;
 
-        .navbar-brand {}
+        .navbar-brand {
+            @include flex-centered();
+            padding: 0;
+            height: 70px;
+            width: 50px;
+            &.highlight {
+                border-top: 1px solid red;
+            }
+        }
     }
 }

@@ -27,6 +27,7 @@
     "grunt-notify": "^0.4.5",
     "grunt-postcss": "^0.8.0",
     "jquery": "^2.2.3",
+    "jquery-ui": "^1.10.5",
     "node-bourbon": "^4.2.8"
   }
 }

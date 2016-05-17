@@ -15,23 +15,57 @@
 }
 
 .branch {
+    @include flex-centered();
     margin: 10px;
-    height: 130px;
-    width:  130px;
+    $size: 170px;
+    height: $size;
+    width:  $size;
 
     border: 1px solid;
 
     .branch__title {
-        width: 90%;
-        padding-left: 5px;
-        border-right:  1px solid;
-        border-bottom: 1px solid;
+        text-align: center;
+        font-size: 2em;
+    }
+    &.branch--pile {
+        $size: 250px;
+        height: $size;
+        width:  $size;
     }
 }
 
 .leaf {
     @include margin-center();
-    height: 50px;
     width:  90%;
-    border: 1px solid $border-color;
+    &.leaf--content {
+        height: 300px;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        font-size: 1.5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        border: 1px solid;
+        padding: 10px;
+        .leaf__publisher-via-source {
+            height: 50px;
+            padding: 5px;
+        }
+        .leaf__copy {
+            display: block;
+        }
+    }
+    &.leaf--pile {
+        @include flex-centered();
+        justify-content: space-between;
+        height: 60px;
+        border: 1px solid $border-color;
+        margin-bottom: 20px;
+        padding-right: 20px;
+        padding-left:  20px;
+        .leaf__title {
+            font-size: 2em;
+        }
+    }
 }

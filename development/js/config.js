@@ -2,13 +2,17 @@ var directives = angular.module('directives', []);
 var services   = angular.module('services',   []);
 var filters    = angular.module('filters',    []);
 var routes     = angular.module('routes',     []);
-var arbor = angular.module('arborApp', ['ngRoute', 'directives', 'services', 'filters', 'routes']);
+var arbor = angular.module('arborApp', ['ngRoute', 'ngAnimate', 'directives', 'services', 'filters', 'routes']);
 
 routes.config(function($routeProvider) {
     $routeProvider
         .when('/', {
             controller: 'homeController as cntlr',
             templateUrl: './development/templates/pages/home.html'
+        })
+        .when('/pseudo-feed/:feed', {
+            controller: 'feedController as cntlr',
+            templateUrl: './development/templates/pages/pseudo-feed.html'
         })
         .when('/pseudo-feed', {
             controller: 'feedController as cntlr',
@@ -46,11 +50,12 @@ services.service('Linker', function($location, $route, $filter, $window){
     };
 
     this.gotoRoute = function(params){
-        var slug    = params.slug    || false;
-        var path    = params.path    || false;
-        var section = params.section || false;
+        var feed    = params.branch || false;
+        var path    = params.path || false;
 
         if (testRoutesForPath(path)) {
+            path += feed ? "/" + feed : "";
+
             $location.path(path);
         }else{
             $window.location = path;
