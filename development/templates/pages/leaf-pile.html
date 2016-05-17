@@ -1,0 +1,22 @@
+<div class="container container--leaf-pile" ng-init="branches = true">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" ng-class="{highlight:branches}"  ng-click="branches = true">Branches</a>
+            <a class="navbar-brand" ng-class="{highlight:!branches}" ng-click="branches = false">Leaves</a>
+        </div>
+    </nav>
+    <div class="fields-container">
+        <div ng-show="branches" class="branches">
+            <div class="branch branch--pile" ng-repeat="branch in branches_example1">
+                <div class="branch__title">{{branch.title}}</div>
+            </div>
+        </div>
+        <div ng-show="!branches" class="leaves">
+            <div class="leaf leaf--pile" ng-repeat="leaf in leaves">
+                <span class="fa fa-2x fa-newspaper-o"></span>
+                <span class="leaf__title">{{leaf.title}}</span>
+                <span class="leaf__media-icon fa fa-2x fa-{{leaf.icon}}"></span>
+            </div>
+        </div>
+    </div>
+</div>

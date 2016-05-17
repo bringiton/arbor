@@ -1,0 +1,5 @@
+<div class="container container--branches">
+    <div ng-repeat="branch in branches_discover" ng-click="gotoRoute({path: '/pseudo-feed', branch: branch.slug})" class="branch">
+        <div class="branch__title">{{branch.title}}</div>
+    </div>
+</div>

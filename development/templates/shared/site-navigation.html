@@ -1,0 +1,9 @@
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a ng-click="gotoRoute(menuItem)" class="navbar-brand" ng-class="{highlight: menuItem.path == current}" ng-repeat="menuItem in menu_links">
+                <i class="fa fa-2x fa-{{menuItem.icon}}"></i>
+            </a>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,10 @@
+<div class="container container--feed">
+    <div class="leaves">
+        <div class="leaf leaf--content" ng-repeat="leaf in leaves" style="background-image: url({{leaf.image}});">
+            <span class="leaf__publisher-via-source">
+                {{leaf.publisher}} via {{leaf.source}}
+            </span>
+            <span ng-if="leaf.copy" class="leaf__copy">{{leaf.copy}}</span>
+        </div>
+    </div>
+</div>

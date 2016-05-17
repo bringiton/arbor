@@ -30,7 +30,8 @@
     "grunt-postcss": "^0.8.0",
     "jquery": "^2.2.3",
     "node-bourbon": "^4.2.8",
-    "nodemon": "^1.9.2"
+    "nodemon": "^1.9.2",
+    "jquery-ui": "^1.10.5"
   },
   "dependencies": {
     "async": "^2.0.0-rc.5",

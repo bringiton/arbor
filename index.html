@@ -2,17 +2,22 @@
 <html ng-app="arborApp">
     <head>
         <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css">
         <link rel="stylesheet" href="./build/css/index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class="container">
+            <div class="the-forest">The Forest</div>
             <div ng-view></div>
+            <site-navigation></site-navigation>
         </div>
         <script src="./node_modules/jquery/dist/jquery.min.js"></script>
         <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="./node_modules/angular/angular.min.js"></script>
         <script src="./node_modules/angular-route/angular-route.min.js"></script>
+        <script src="./node_modules/angular-animate/angular-animate.min.js"></script>
+        <script src="./development/js/jquery-ui.js"></script>
         <script src="./development/js/config.js"></script>
         <script src="./development/js/index.js"></script>
     </body>
