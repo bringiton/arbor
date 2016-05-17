@@ -3,6 +3,8 @@ arbor.run(['$rootScope', 'Linker',
         $rootScope.gotoRoute = function(params){
             return Linker.gotoRoute(params);
         };
+
+        $(".branch--pile, .leaf--pile").draggable();
     }
 ]);
 
@@ -65,6 +67,106 @@ arbor.controller("feedController", [ "$rootScope", "$scope", "$routeParams", "Li
         $scope.branch_and_leaves = [
             {
                 slug: 'news',
+                leaves: [
+                    {
+                        publisher: 'New York Times',
+                        source: 'Twitter',
+                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
+                    },
+                    {
+                        publisher: 'New York Times',
+                        source: 'Facebook',
+                        copy: 'Checking Facebook often? Consider your options ...'
+                    },
+                    {
+                        publisher: 'New York Times',
+                        source: 'Instagram',
+                        image: '../../assets/images/new-york-times__instagram-image.jpg'
+                    },
+                    {
+                        publisher: 'New York Times',
+                        source: 'Twitter',
+                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
+                    },
+                ]
+            },
+            {
+                slug: 'politics',
+                leaves: [
+                    {
+                        publisher: 'New York Times',
+                        source: 'Twitter',
+                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
+                    },
+                    {
+                        publisher: 'New York Times',
+                        source: 'Facebook',
+                        copy: 'Checking Facebook often? Consider your options ...'
+                    },
+                    {
+                        publisher: 'New York Times',
+                        source: 'Instagram',
+                        image: '../../assets/images/new-york-times__instagram-image.jpg'
+                    },
+                    {
+                        publisher: 'New York Times',
+                        source: 'Twitter',
+                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
+                    },
+                ]
+            },
+            {
+                slug: 'music',
+                leaves: [
+                    {
+                        publisher: 'New York Times',
+                        source: 'Twitter',
+                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
+                    },
+                    {
+                        publisher: 'New York Times',
+                        source: 'Facebook',
+                        copy: 'Checking Facebook often? Consider your options ...'
+                    },
+                    {
+                        publisher: 'New York Times',
+                        source: 'Instagram',
+                        image: '../../assets/images/new-york-times__instagram-image.jpg'
+                    },
+                    {
+                        publisher: 'New York Times',
+                        source: 'Twitter',
+                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
+                    },
+                ]
+            },
+            {
+                slug: 'world-news',
+                leaves: [
+                    {
+                        publisher: 'New York Times',
+                        source: 'Twitter',
+                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
+                    },
+                    {
+                        publisher: 'New York Times',
+                        source: 'Facebook',
+                        copy: 'Checking Facebook often? Consider your options ...'
+                    },
+                    {
+                        publisher: 'New York Times',
+                        source: 'Instagram',
+                        image: '../../assets/images/new-york-times__instagram-image.jpg'
+                    },
+                    {
+                        publisher: 'New York Times',
+                        source: 'Twitter',
+                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
+                    },
+                ]
+            },
+            {
+                slug: 'new-york-times',
                 leaves: [
                     {
                         publisher: 'New York Times',
