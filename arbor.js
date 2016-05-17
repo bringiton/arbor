@@ -37,7 +37,7 @@ Example request:
 */
 
 function getData(users, finalCallback) {
-	var allUserData = [];
+	var allUserData = { twitter : [] , instagram : []};
 
 	var tasks = users.map(function(user) {
 		return function(callback) {
@@ -47,8 +47,33 @@ function getData(users, finalCallback) {
 				twitter.get_twitter_feeds(user.name , function(err , data){
 					if(err){
 						debug('Error retrieving twitter');
-					}else{
-						allUserData.push(data);
+					}
+					else{
+						
+						var users = {};
+
+						var result = { text : '',
+									   user : {screen_name : '' , name: ''},
+									   'create_date' : ''};
+						data.forEach(function(value){
+
+							result.text= value['text'];
+							result.create_date = value['created_at'];
+							result.user.screen_name = value['user']['screen_name'];
+							result.user.name = value['user']['name'];
+						  	
+							if(users.hasOwnProperty(result.user.screen_name)){
+								users[result.user.screen_name].push(result);
+							}else{
+								users[result.user.screen_name] = [];
+								users[result.user.screen_name].push(result);
+							}
+
+						});
+
+						allUserData['twitter'].push(users);
+
+						
 					}
 					callback();
 				});
@@ -59,7 +84,33 @@ function getData(users, finalCallback) {
 						debug('Error retrieving Instagram', err);
 					} else {
 						debug('instagram called');
-						allUserData.push(data);
+						debug(Object.prototype.toString.call(data));
+						var result = { data : {tags:[] , link:'', caption : '' },
+									   user : {screen_name : '' , name: '' , profile_pic:''},
+									   'create_date' : ''};
+
+						var users = {};
+
+						data['data'].forEach(function(value){
+							result.data.tags = value['tags'];
+							result.data.link = value['link'];
+							result.data.caption = value['caption']['text'];
+							result.user.screen_name = value['caption']['from']['username'];
+							result.user.name = value['caption']['from']['full_name'];
+							result.user.profile_pic = value['caption']['from']['profile_picture'];
+							result.create_date = value['created_time'];
+
+							if(users.hasOwnProperty(result.user.screen_name)){
+								debug(result);
+								users[result.user.screen_name].push(result);
+							}else{
+								users[result.user.screen_name] = [];
+								users[result.user.screen_name].push(result);
+							}
+						});
+
+						allUserData['instagram'].push(users);
+
 					}
 					callback();
 				});
