@@ -12,7 +12,7 @@ arbor.controller("homeController", [ "$scope", "Linker",
     function ($scope, Linker) {
         $scope.branches_page1 = [
             {
-                title: 'News',
+                title: 'Arbor',
                 slug: 'news'
             },
             {
@@ -28,7 +28,7 @@ arbor.controller("homeController", [ "$scope", "Linker",
                 slug: 'food'
             },
             {
-                title: 'World News',
+                title: 'Sports',
                 slug: 'world-news'
             },
             {
@@ -64,138 +64,75 @@ arbor.controller("feedController", [ "$rootScope", "$scope", "$routeParams", "Li
             $rootScope.gotoRoute({path: '/'});
         }
 
-        $scope.branch_and_leaves = [
-            {
-                slug: 'news',
-                leaves: [
-                    {
-                        publisher: 'New York Times',
-                        source: 'Twitter',
-                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Facebook',
-                        copy: 'Checking Facebook often? Consider your options ...'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Instagram',
-                        image: '../../assets/images/new-york-times__instagram-image.jpg'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Twitter',
-                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
-                    },
-                ]
-            },
-            {
-                slug: 'politics',
-                leaves: [
-                    {
-                        publisher: 'New York Times',
-                        source: 'Twitter',
-                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Facebook',
-                        copy: 'Checking Facebook often? Consider your options ...'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Instagram',
-                        image: '../../assets/images/new-york-times__instagram-image.jpg'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Twitter',
-                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
-                    },
-                ]
-            },
-            {
-                slug: 'music',
-                leaves: [
-                    {
-                        publisher: 'New York Times',
-                        source: 'Twitter',
-                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Facebook',
-                        copy: 'Checking Facebook often? Consider your options ...'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Instagram',
-                        image: '../../assets/images/new-york-times__instagram-image.jpg'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Twitter',
-                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
-                    },
-                ]
-            },
-            {
-                slug: 'world-news',
-                leaves: [
-                    {
-                        publisher: 'New York Times',
-                        source: 'Twitter',
-                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Facebook',
-                        copy: 'Checking Facebook often? Consider your options ...'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Instagram',
-                        image: '../../assets/images/new-york-times__instagram-image.jpg'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Twitter',
-                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
-                    },
-                ]
-            },
-            {
-                slug: 'new-york-times',
-                leaves: [
-                    {
-                        publisher: 'New York Times',
-                        source: 'Twitter',
-                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Facebook',
-                        copy: 'Checking Facebook often? Consider your options ...'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Instagram',
-                        image: '../../assets/images/new-york-times__instagram-image.jpg'
-                    },
-                    {
-                        publisher: 'New York Times',
-                        source: 'Twitter',
-                        copy: 'Breaking news, Startup Bus just left Cincinatti!'
-                    },
-                ]
+        $scope.branch_and_leaves = {
+            slug: 'news',
+            leaves: [
+                // {
+                //     publisher: 'New York Times',
+                //     source: 'Twitter',
+                //     copy: 'Breaking news, Startup Bus just left Cincinatti!'
+                // },
+                // {
+                //     publisher: 'New York Times',
+                //     source: 'Facebook',
+                //     copy: 'Checking Facebook often? Consider your options ...'
+                // },
+                // {
+                //     publisher: 'New York Times',
+                //     source: 'Instagram',
+                //     image: '../../assets/images/new-york-times__instagram-image.jpg'
+                // },
+                // {
+                //     publisher: 'New York Times',
+                //     source: 'Twitter',
+                //     copy: 'Breaking news, Startup Bus just left Cincinatti!'
+                // }
+            ]
+        };
+
+        $.ajax({
+            url: 'https://arborapp.herokuapp.com/retrieve/',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(
+                {
+                    "users": [
+                        {"name": "sriram09","source": "twitter"},
+                        {"name": "srirams09","source": "instagram"},
+                        {"name": "saltorcivia","source": "twitter"},
+                    ]
+                }
+            )
+        })
+        .done(function(data) {
+            var salsTwitter   = data.data[0];
+            var ramsTwitter   = data.data[1];
+            var ramsInstagram = data.data[2].data;
+
+            for(var i = 0; i < ramsTwitter.length; i++) {
+                $scope.branch_and_leaves['leaves'][i] = {}
+                $scope.branch_and_leaves['leaves'][i]['copy'] = ramsTwitter[i].text;
+                $scope.branch_and_leaves['leaves'][i]['name'] = ramsTwitter[i].user.name;
+                $scope.branch_and_leaves['leaves'][i]['source'] = "twitter";
             }
-        ];
-        $scope.branch_and_leaves.filter(function(index){
-            if(index.slug == feed) {
-                return $scope.leaves = index.leaves;
+
+            for(var i = 0; i < ramsInstagram.length; i++) {
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + 1] = {}
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + 1]['image'] = ramsInstagram[i].link;
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + 1]['source'] = "instagram";
             }
-        });
+// Just in a rush, don't crucify me for doing it this way
+            for(var i = 0; i < salsTwitter; i++) {
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + ramsInstagram.length + i] = {}
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + ramsInstagram.length + i]['copy'] = salsTwitter[i].text;
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + ramsInstagram.length + i]['name'] = salsTwitter[i].user.name;
+                $scope.branch_and_leaves['leaves'][ramsTwitter.length + ramsInstagram.length + i]['source'] = "twitter";
+            }
+
+            $scope.$digest();
+        })
+        .fail(function()   {})
+        .always(function() {});
     }
 ]);
 
