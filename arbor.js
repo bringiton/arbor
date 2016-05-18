@@ -1,9 +1,11 @@
 var instagram = require("./development/js/instagram.js");
 var twitter = require("./development/js/twitter.js");
+var facebook = require("./development/js/facebook.js");
 var async = require('async');
 var express = require('express');
 var bodyParser = require('body-parser');
 var debug = require('debug')('arbor');
+var graph = require('fbgraph')
 
 var app = express();
 app.use(bodyParser.json());
@@ -37,7 +39,7 @@ Example request:
 */
 
 function getData(users, finalCallback) {
-	var allUserData = { twitter : [] , instagram : []};
+	var allUserData = { twitter : [] , instagram : [] , facebook : [] };
 
 	var tasks = users.map(function(user) {
 		return function(callback) {
@@ -85,7 +87,7 @@ function getData(users, finalCallback) {
 					} else {
 						debug('instagram called');
 						debug(Object.prototype.toString.call(data));
-						var result = { data : {tags:[] , link:'', caption : '' },
+						var result = { data : {tags:[] , image:'', caption : '' },
 									   user : {screen_name : '' , name: '' , profile_pic:''},
 									   'create_date' : ''};
 
@@ -93,7 +95,7 @@ function getData(users, finalCallback) {
 
 						data['data'].forEach(function(value){
 							result.data.tags = value['tags'];
-							result.data.link = value['link'];
+							result.data.image = value['images']['standard_resolution']['url'];
 							result.data.caption = value['caption']['text'];
 							result.user.screen_name = value['caption']['from']['username'];
 							result.user.name = value['caption']['from']['full_name'];
@@ -114,6 +116,25 @@ function getData(users, finalCallback) {
 					}
 					callback();
 				});
+			}else if( source === 'facebook'){
+				facebook.get_fb_posts(user.name , function(err,data){
+					if(err){
+						debug('Error retrieving facebook' , err)
+					}else{
+						debug('facebook called');
+						debug(Object.prototype.toString.call(data));
+						
+						var fbdata = [];
+
+						data['data'].forEach(function(value){
+							fbdata.push(value);
+						});
+
+						allUserData['facebook'].push(fbdata);
+					}
+					callback();
+				});
+
 			} else {
 				debug("Unrecognised source:", source);
 				callback();
