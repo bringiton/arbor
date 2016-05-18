@@ -54,16 +54,23 @@ function getData(users, finalCallback) {
 						
 						var users = {};
 
-						var result = { text : '',
-									   user : {screen_name : '' , name: ''},
-									   'create_date' : ''};
+						var result = { 	text : '',
+									   	user : {screen_name : '' , name: ''},
+									   	create_date : '',
+										media : ''};
+
 						data.forEach(function(value){
 
 							result.text= value['text'];
 							result.create_date = value['created_at'];
 							result.user.screen_name = value['user']['screen_name'];
 							result.user.name = value['user']['name'];
-						  	
+							if(value.hasOwnProperty('extended_entities')){
+								if(value['extended_entities'].hasOwnProperty('media')){
+									result.media = value['extended_entities']['media'][0]["media_url_https"];
+								}
+						  	}
+
 							if(users.hasOwnProperty(result.user.screen_name)){
 								users[result.user.screen_name].push(result);
 							}else{
@@ -71,12 +78,15 @@ function getData(users, finalCallback) {
 								users[result.user.screen_name].push(result);
 							}
 
-							result = { text : '',
-									   user : {screen_name : '' , name: ''},
-									   'create_date' : ''};
+							result = { 	text : '',
+									   	user : {screen_name : '' , name: ''},
+									   	create_date : '',
+										media : ''};
 
 						});
 
+						debug(users);
+						
 						allUserData['twitter'].push(users);
 
 						
