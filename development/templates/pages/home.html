@@ -2,7 +2,7 @@
     <div ng-repeat="branch in branches_page1 track by $index" ng-click="gotoRoute({path: '/pseudo-feed', branch: branch.slug})" class="branch">
         <div class="content">
             <div class="title-and-drag">
-                <div class="publisher-logo">{{branch.publisher}}</div>
+                <div class="publisher-logo" style="background-image: url({{branch.publisher}});"></div>
                 <div class="branch__title">{{branch.title}}</div>
                 <span class="drag-me-button">
                     <span class="line"></span>
