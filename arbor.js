@@ -71,6 +71,10 @@ function getData(users, finalCallback) {
 								users[result.user.screen_name].push(result);
 							}
 
+							result = { text : '',
+									   user : {screen_name : '' , name: ''},
+									   'create_date' : ''};
+
 						});
 
 						allUserData['twitter'].push(users);
@@ -86,7 +90,7 @@ function getData(users, finalCallback) {
 						debug('Error retrieving Instagram', err);
 					} else {
 						debug('instagram called');
-						debug(Object.prototype.toString.call(data));
+
 						var result = { data : {tags:[] , image:'', caption : '' },
 									   user : {screen_name : '' , name: '' , profile_pic:''},
 									   'create_date' : ''};
@@ -94,6 +98,7 @@ function getData(users, finalCallback) {
 						var users = {};
 
 						data['data'].forEach(function(value){
+
 							result.data.tags = value['tags'];
 							result.data.image = value['images']['standard_resolution']['url'];
 							result.data.caption = value['caption']['text'];
@@ -103,12 +108,15 @@ function getData(users, finalCallback) {
 							result.create_date = value['created_time'];
 
 							if(users.hasOwnProperty(result.user.screen_name)){
-								debug(result);
 								users[result.user.screen_name].push(result);
 							}else{
 								users[result.user.screen_name] = [];
 								users[result.user.screen_name].push(result);
 							}
+
+							result = { data : {tags:[] , image:'', caption : '' },
+									   user : {screen_name : '' , name: '' , profile_pic:''},
+									   'create_date' : ''};
 						});
 
 						allUserData['instagram'].push(users);
