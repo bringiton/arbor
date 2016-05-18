@@ -1,10 +1,20 @@
 .container--feed {
-    .leaf__publisher-via-source {
+    .leaf {
+        padding: 0;
+    }
+    .leaf__copy {
+        padding-right: 5px;
+        padding-left:  5px;
+        padding-bottom: 5px;
+    }
+
+    .publisher-and-time {
         display: flex;
         justify-content: space-between;
-
+        padding: 5px;
         .publisher-via-medium {
             display: flex;
+            justify-content: space-between;
             align-items: center;
             .publisher {
                 display: flex;
@@ -24,6 +34,7 @@
         .time-and-like-status {
             display: flex;
             align-items: center;
+            float: right;
             .heart-like-status {
                 color: black;
                 font-size: 1.5em;
