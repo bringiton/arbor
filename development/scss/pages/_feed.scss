@@ -1,0 +1,37 @@
+.container--feed {
+    .leaf__publisher-via-source {
+        display: flex;
+        justify-content: space-between;
+
+        .publisher-via-medium {
+            display: flex;
+            align-items: center;
+            .publisher {
+                display: flex;
+                align-items: center;
+                margin-right: 5px;
+                .the-publisher {
+                    border: 1px solid;
+                    height: 40px;
+                    width:  40px;
+                    margin-right: 10px;
+                }
+            }
+            .medium {
+                font-weight: bold;
+            }
+        }
+        .time-and-like-status {
+            display: flex;
+            align-items: center;
+            .heart-like-status {
+                color: black;
+                font-size: 1.5em;
+                margin-left: 10px;
+                .fill {
+                    color: #ce3233;
+                }
+            }
+        }
+    }
+}

@@ -1,14 +1,18 @@
 <div class="container container--search">
     <div class="form-group">
         <div class="col-sm-10">
-            <input type="search" id="input" class="form-control" ng-model="testField">
+            Search: <input type="search" id="input" class="form-control" ng-model="testField">
         </div>
     </div>
     <div class="search-results">
         <div class="search-result leaf leaf--pile" ng-repeat="searchResult in searchResults | filter:testField">
-            <span class="fa fa-2x fa-newspaper-o"></span>
-            <span class="leaf__title">{{searchResult.title}}</span>
-            <span class="leaf__media-icon fa fa-2x fa-{{searchResult.icon}}"></span>
+            <span class="publisher"></span>
+            <div class="title-and-mediums">
+                <span class="leaf__title">{{searchResult.title}}</span>
+                <div class="mediums">
+                    <span ng-repeat="medium in searchResult.mediums" class="leaf__media-icon fa fa-2x fa-{{searchResult.icon}}"></span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

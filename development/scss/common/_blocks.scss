@@ -13,7 +13,12 @@
 .container--search {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 100px;
+}
+.container--feed {
     padding-top: 20px;
     padding-bottom: 100px;
 }
@@ -23,7 +28,7 @@
     margin: 10px;
     $size: 100px;
     height: $size;
-    width:  80%;
+    width:  100%;
     max-width: 600px;
 
     border: 1px solid;
@@ -32,16 +37,11 @@
         text-align: center;
         font-size: 2em;
     }
-    &.branch--pile {
-        $size: 250px;
-        height: $size;
-        width:  $size;
-    }
 }
 
 .leaf {
     @include margin-center();
-    width:  90%;
+    width:  100%;
     &.leaf--content {
         height: 300px;
         background-size: 100% auto;
@@ -50,25 +50,31 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin-bottom: 20px;
-        border: 1px solid;
+        border-bottom: 1px solid;
         padding: 10px;
         .leaf__publisher-via-source {
             height: 50px;
             padding: 5px;
+            border: 0;
         }
         .leaf__copy {
             display: block;
+            width: 100%;
+            span.border-bottom {
+                @include margin-center();
+                width: 90%;
+                border-bottom: 1px solid #aaaaaa;
+            }
         }
     }
     &.leaf--pile {
         @include flex-centered();
         justify-content: space-between;
         height: 60px;
-        border: 1px solid $border-color;
-        margin-bottom: 20px;
-        padding-right: 20px;
-        padding-left:  20px;
+        border-bottom: 1px solid $border-color;
+        &:first-child {
+            border-top: 1px solid $border-color;
+        }
         .leaf__title {
             font-size: 2em;
         }
