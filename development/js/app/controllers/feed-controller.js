@@ -18,6 +18,7 @@ arbor.controller("feedController", [ "$rootScope", "$scope", "$routeParams", "Li
                 data: JSON.stringify(
                     {
                         "users": [
+
                             {"name": "startupbusnyc", "source": "twitter"},
                             {"name": "startupbusnyc", "source": "instagram"},
                             {"name": "startupbusvan", "source": "instagram"},
@@ -26,14 +27,16 @@ arbor.controller("feedController", [ "$rootScope", "$scope", "$routeParams", "Li
                             {"name": "startupbusmake", "source": "twitter"},
                             {"name": "startupbussf", "source": "twitter"},
                             {"name": "startupbusvan", "source": "twitter"},
+                            {"name": "sriram09","source": "twitter"},
+                            {"name": "srirams09","source": "instagram"},
+                            {"name": "saltorcivia","source": "twitter"},
                         ]
                     }
                 )
             })
             .done(function(data) {
                 $scope.feed = [];
-                console.log(data)
-
+                
                 var aggregate = data['data']['twitter'].concat(data.data.instagram);
 
                 aggregate.map(function(index, elem) {
