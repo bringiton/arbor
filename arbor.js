@@ -53,7 +53,7 @@ function getData(users, finalCallback) {
 					else{
 						
 						var users = {};
-						var user_count = {}
+						//var user_count = {}
 
 						var result = { 	text : '',
 									   	user : {screen_name : '' , name: '' , image : ''},
@@ -77,13 +77,13 @@ function getData(users, finalCallback) {
 								result.user.image = value['user']["profile_image_url_https"];
 						  	}
 
-							if(users.hasOwnProperty(result.user.screen_name) && user_count[result.user.screen_name] < 20){
+							if(users.hasOwnProperty(result.user.screen_name)){//&& user_count[result.user.screen_name] < 20){
 								users[result.user.screen_name].push(result);
-								user_count[result.user.screen_name] += 1
+								//user_count[result.user.screen_name] += 1
 							}else{
 								users[result.user.screen_name] = [];
 								users[result.user.screen_name].push(result);
-								user_count[result.user.screen_name] = 1
+								//user_count[result.user.screen_name] = 1
 							}
 
 							result = { 	text : '',
