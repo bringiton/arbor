@@ -8,18 +8,23 @@
     @include margin-center();
 }
 
-.container--branches {
+.container--branches,
+.container--leaf-pile,
+.container--search {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 100px;
 }
 
 .branch {
     @include flex-centered();
     margin: 10px;
-    $size: 170px;
+    $size: 100px;
     height: $size;
-    width:  $size;
+    width:  80%;
+    max-width: 600px;
 
     border: 1px solid;
 
