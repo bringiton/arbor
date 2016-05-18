@@ -36,6 +36,7 @@ module.exports = function(grunt) {
                         'build/js/arbor-app.js': [
                             'node_modules/jquery/dist/jquery.min.js',
                             'development/js/jquery-ui.js',
+                            'development/js/jquery-ui--force-touch.js',
                             'node_modules/bootstrap/dist/js/bootstrap.min.js',
                             'node_modules/angular/angular.min.js',
                             'node_modules/angular-route/angular-route.min.js',

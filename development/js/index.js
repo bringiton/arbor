@@ -4,6 +4,6 @@ arbor.run(['$rootScope', 'Linker',
             return Linker.gotoRoute(params);
         };
 
-        $(".branch--pile, .leaf--pile").draggable();
+        $(".branch, .leaf").draggable();
     }
 ]);

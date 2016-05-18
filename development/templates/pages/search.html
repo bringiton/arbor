@@ -6,11 +6,21 @@
     </div>
     <div class="search-results">
         <div class="search-result leaf leaf--pile" ng-repeat="searchResult in searchResults | filter:testField">
-            <span class="publisher"></span>
-            <div class="title-and-mediums">
-                <span class="leaf__title">{{searchResult.title}}</span>
-                <div class="mediums">
-                    <span ng-repeat="medium in searchResult.mediums" class="leaf__media-icon fa fa-2x fa-{{searchResult.icon}}"></span>
+            <div class="content">
+                <div class="innards">
+                    <span class="publisher"></span>
+                    <div class="title-and-mediums">
+                        <span class="leaf__title">{{searchResult.title}}</span>
+                        <div class="mediums" ng-if="searchResult.mediums">
+                            <i ng-repeat="medium in searchResult.mediums" class="leaf__media-icon fa fa-2x fa-{{searchResult.icon}}"></i>
+                        </div>
+                    </div>
+                    <div class="continue">
+                        <div class="arrow-container">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

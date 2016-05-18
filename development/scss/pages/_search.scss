@@ -6,19 +6,54 @@
     .search-results {
         width: 100%;
         .leaf {
-            @include flex-centered();
-            padding-right: 10px;
-            padding-left:  10px;
-            justify-content: space-between;
-            .publisher {
-                height: 50px;
-                width:  50px;
-                border: 1px solid;
-            }
-            .title-and-mediums {
-                display: flex;
-                flex-direction: column
+            height: auto;
+            .content {
+                width: 100%;
+                .innards {
+                    @include margin-center();
+                    @include flex-centered();
 
+                    width: 90%;
+                    .publisher {
+                        height: 50px;
+                        width:  50px;
+                        border: 1px solid;
+                        flex: 0 1 50px;
+                    }
+                    .title-and-mediums {
+                        display: flex;
+                        flex-direction: column;
+                        height: inherit;
+                        flex: 1 0 auto;
+                        padding-left: 20px;
+                        .mediums {
+                            i {
+                                color: black;
+                            }
+                        }
+                    }
+                    .continue {
+                        flex: 0 1 50px;
+                        transform: translateY(50%);
+                        .arrow-container {
+                            $size: 30px;
+                            height: $size;
+                            width:  $size;
+                            transform: rotate(180deg) translateY(30px);
+                            .line {
+                                height: 1px;
+                                width: 30px;
+                                background-color: black;
+                                &:first-child {
+                                    transform: rotate(45deg) translateX(10px) translateY(5px);
+                                }
+                                &:last-child {
+                                    transform: rotate(-45deg) translateX(10px) translateY(-5px);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

@@ -12,44 +12,61 @@
 .branch {
     color: black;
     border: 0;
+    margin: 0;
+    height: auto;
+    &:last-child {
+        .title-and-drag {
+            border-bottom: 0;
+        }
+    }
     .content {
         width: 100%;
-        .publisher-logo {
-            height: 50px;
-            width: 50px;
-            border: 1px solid;
-        }
         .title-and-drag {
-            padding-top: 20px;
-            padding-bottom: 20px;
             @include flex-centered();
             justify-content: space-between;
             @include margin-center();
+
+            padding-top: 20px;
+            padding-bottom: 20px;
             width: 90%;
             height: inherit;
             border-bottom: 1px solid #aaa;
-            > span,
-            > div {
-                flex: 1 1 auto;
+
+            .publisher-logo {
+                height: 50px;
+                width: 50px;
+                border: 1px solid;
+                flex: 0 1 50px;
             }
-        }
-        .drag-me-button {
-            $size: 40px;
-            width:  $size;
-            height: 20px;
-            @include flex-centered(column);
-            justify-content: space-between;
-            .line,
-            &::before,
-            &::after {
-                height: 1px;
-                width: $size / 1.5;
-                border: 1px solid #aaa;
-                display: block;
+
+            .branch__title {
+                flex: 1 0 50px;
+                text-align: left;
+                padding-left: 20px;
+                padding-right: 20px;
             }
-            &::before,
-            &::after {
-                content: '';
+
+            .drag-me-button {
+                @include flex-centered(column);
+                justify-content: space-between;
+                flex: 0 1 40px;
+
+                $size: 40px;
+                width:  $size;
+                height: 20px;
+
+                .line,
+                &::before,
+                &::after {
+                    height: 1px;
+                    width: $size / 1.5;
+                    border: 1px solid #aaa;
+                    display: block;
+                }
+                &::before,
+                &::after {
+                    content: '';
+                }
             }
         }
     }
