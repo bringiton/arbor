@@ -43,15 +43,20 @@
     @include margin-center();
     width:  100%;
     &.leaf--content {
-        height: 300px;
-        background-size: 100% auto;
-        background-repeat: no-repeat;
+        min-height: 300px;
         font-size: 1.5em;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         border-bottom: 1px solid;
         padding: 10px;
+        .background-image-and-source {
+            height: 0;
+            width: 100%;
+            padding-bottom: 80%;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+        }
         .leaf__publisher-via-source {
             height: 50px;
             padding: 5px;

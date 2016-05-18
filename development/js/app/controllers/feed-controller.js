@@ -27,7 +27,7 @@ arbor.controller("feedController", [ "$rootScope", "$scope", "$routeParams", "Li
             })
             .done(function(data) {
                 $scope.feed = [];
-console.log(data)
+                console.log(data)
                 var aggregate = data['data']['twitter'].concat(data.data.instagram);
 
                 aggregate.map(function(index, elem) {
@@ -43,7 +43,8 @@ console.log(data)
                 })
 
                 $scope.feed = $scope['feed'].sort(function(index, index_1) {
-                    return index['create_date_edited'] < index_1['create_date_edited']
+                    return index['create_date'] < index_1['create_date']
+                    console.log()
                 });
 
                 $scope.$digest();
