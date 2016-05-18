@@ -55,7 +55,7 @@ function getData(users, finalCallback) {
 						var users = {};
 
 						var result = { 	text : '',
-									   	user : {screen_name : '' , name: ''},
+									   	user : {screen_name : '' , name: '' , image : ''},
 									   	create_date : '',
 										media : ''};
 
@@ -65,10 +65,16 @@ function getData(users, finalCallback) {
 							result.create_date = value['created_at'];
 							result.user.screen_name = value['user']['screen_name'];
 							result.user.name = value['user']['name'];
+
 							if(value.hasOwnProperty('extended_entities')){
 								if(value['extended_entities'].hasOwnProperty('media')){
 									result.media = value['extended_entities']['media'][0]["media_url_https"];
 								}
+						  	}
+
+						  	if(value['user'].hasOwnProperty('profile_image_url_https')){
+								
+								result.user.image = value['user']["profile_image_url_https"];
 						  	}
 
 							if(users.hasOwnProperty(result.user.screen_name)){
@@ -79,14 +85,14 @@ function getData(users, finalCallback) {
 							}
 
 							result = { 	text : '',
-									   	user : {screen_name : '' , name: ''},
+									   	user : {screen_name : '' , name: '' , image: ''},
 									   	create_date : '',
 										media : ''};
 
 						});
 
 						debug(users);
-						
+
 						allUserData['twitter'].push(users);
 
 						
