@@ -18,9 +18,14 @@ arbor.controller("feedController", [ "$rootScope", "$scope", "$routeParams", "Li
                 data: JSON.stringify(
                     {
                         "users": [
-                            {"name": "sriram09","source": "twitter"},
-                            {"name": "srirams09","source": "instagram"},
-                            {"name": "saltorcivia","source": "twitter"},
+                            {"name": "startupbusnyc", "source": "twitter"},
+                            {"name": "startupbusnyc", "source": "instagram"},
+                            {"name": "startupbusvan", "source": "instagram"},
+                            {"name": "startupbusmx", "source": "twitter"},
+                            {"name": "startupbusfl", "source": "twitter"},
+                            {"name": "startupbusmake", "source": "twitter"},
+                            {"name": "startupbussf", "source": "twitter"},
+                            {"name": "startupbusvan", "source": "twitter"},
                         ]
                     }
                 )
@@ -33,9 +38,16 @@ arbor.controller("feedController", [ "$rootScope", "$scope", "$routeParams", "Li
 
                 aggregate.map(function(index, elem) {
                     index[Object.keys(index)].map(function(index, elem) {
+                        index.create_date_edited = (index['create_date'].match(/ /) == null)
+                            ? Number.parseInt(index['create_date']) : Date.parse(index['create_date']);
+
+                        index.create_date_edited = (index.create_date_edited.toString().length > 10)
+                            ? index.create_date_edited.toString().substr(0, 10) : index.create_date_edited
+
                         $scope.feed = $scope['feed'].concat(index);
                     })
                 })
+                $scope.$digest();
 
                 $scope.feed = $scope['feed'].sort(function(index, index_1) {
                     return index['create_date'] < index_1['create_date']

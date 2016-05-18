@@ -1,10 +1,13 @@
 <div class="container container--feed">
     <div class="leaves">
-        <div class="leaf leaf--content" ng-repeat="media in feed track by $index">
+        <div class="leaf leaf--content" ng-repeat="media in feed track by $index" data-created="{{media.create_date_edited}}">
             <div class="publisher-and-time">
                 <div class="publisher-via-medium">
                     <span class="publisher">
-                        <span class="the-publisher">{{media.publisher}}</span> via </span>
+                        <span ng-if="media.user.profile_pic" class="the-publisher"><img ng-src="{{media.user.profile_pic}}" alt=""></span>
+                        <span ng-if="media.user.image"       class="the-publisher"><img ng-src="{{media.user.image}}" alt=""></span>
+                         via 
+                        </span>
                     </span>
                     <span class="medium" ng-if="media.data">Instagram</span>
                     <span class="medium" ng-if="!media.data">Twitter</span>
